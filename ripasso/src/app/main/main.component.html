@@ -1,0 +1,12 @@
+<div>
+    <button (click)="loadData()">Load data</button>
+</div>    
+<div *ngIf="data">
+    <table>
+        <tr *ngFor="let riga of data">
+            <td>{{riga.id}}</td>
+            <td>{{riga.first_name}}</td>
+            <td>{{riga.last_name}}</td>
+        </tr>
+    </table>
+</div>
