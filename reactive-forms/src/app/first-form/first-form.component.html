@@ -1,0 +1,10 @@
+<p>
+    <label for="input-nome"> Nome: </label>
+    <input id="input-nome" placeholder="Inserire il nome..." type="text" [formControl]="nome">
+</p>
+<p>
+    <button type="button" (click)="aggiornaNome()">Aggiorna il nome</button>
+</p>
+<p>
+    {{nome.value}}
+</p>
