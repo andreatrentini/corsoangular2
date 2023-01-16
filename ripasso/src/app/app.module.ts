@@ -7,6 +7,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { MainComponent } from './main/main.component';
 import { FooterComponent } from './footer/footer.component';
 import { MainNewComponent } from './main-new/main-new.component';
+import { MainDueComponent } from './main-due/main-due.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { MainNewComponent } from './main-new/main-new.component';
     MainComponent,
     FooterComponent,
     MainNewComponent,
+    MainDueComponent,
   ],
   imports: [
     BrowserModule,

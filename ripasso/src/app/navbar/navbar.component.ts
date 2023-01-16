@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DataService } from '../data.service';
 import { LogService } from '../log.service';
 
 @Component({
@@ -7,10 +8,14 @@ import { LogService } from '../log.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-  constructor(private logService: LogService) {}
+  constructor(private logService: LogService, private dataService: DataService) {}
   
   inviaMessaggio() {
     this.logService.addMessage('Bottone premuto');
+  }
+
+  loadData() {
+    this.dataService.loadData();
   }
   
 }

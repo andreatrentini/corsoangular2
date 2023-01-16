@@ -1,7 +1,4 @@
-<div>
-    <button (click)="loadData()">Load data</button>
-</div>    
-<div *ngIf="data">
+<div id="data" *ngIf="data">
     <table>
         <tr *ngFor="let riga of data">
             <td>{{riga.id}}</td>
