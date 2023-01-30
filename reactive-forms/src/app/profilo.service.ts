@@ -8,11 +8,17 @@ export class ProfiloService {
   constructor() { }
 
   salva(profilo: any) {
-    localStorage.setItem('profilo', profilo);
+    localStorage.setItem('profilo', JSON.stringify(profilo));
   }
 
   carica() {
-    return localStorage.getItem('profilo');
+    let profiloLetto = localStorage.getItem('profilo');   
+    if (profiloLetto) {
+      return JSON.parse(profiloLetto);
+    }  
+    else {
+      return null;
+    }
   }
 
   azzera() {
