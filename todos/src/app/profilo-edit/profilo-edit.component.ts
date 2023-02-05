@@ -13,9 +13,7 @@ export class ProfiloEditComponent implements OnInit {
 
   ngOnInit() {
     this.profilo.loadFromLocalStorage();
-    this.formProfilo = this.profilo.createForm();
-    //console.log(this.f);
-    //console.log(this.i);
+    this.formProfilo = this.profilo.createForm();  
   }
 
   salva() {
