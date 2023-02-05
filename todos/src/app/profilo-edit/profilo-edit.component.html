@@ -1,4 +1,4 @@
-<div class="container-md">
+<div class="container-sm">
   <form [formGroup]="formProfilo" (ngSubmit)="salva()">
     <div class="mb-3">
       <label for="inputNome" class="form-label">Nome</label>
@@ -51,7 +51,7 @@
         <label for="inputNCivico" class="form-label">Città</label>
         <input type="text" class="form-control" id="citta" aria-describedby="cittaHelp" formControlName="citta"
         [ngClass]="{'is-invalid': i['citta'].touched &&  i['citta'].errors, 'is-valid':  i['citta'].valid }">
-        <div id="cittaHelp" class="form-text" *ngIf="!(i['citta'].touched && i['citta'].errors)">Inserire il nome</div>
+        <div id="cittaHelp" class="form-text" *ngIf="!(i['citta'].touched && i['citta'].errors)">Inserire il nome della città</div>
         <div class="invalid-feedback" *ngIf="i['citta'].touched && i['citta'].errors">Il nome della città è obbligatorio.</div>
       </div>
       <div class="mb-3">
