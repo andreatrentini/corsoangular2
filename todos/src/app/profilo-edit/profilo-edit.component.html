@@ -1,0 +1,71 @@
+<div class="container-md">
+  <form [formGroup]="formProfilo" (ngSubmit)="salva()">
+    <div class="mb-3">
+      <label for="inputNome" class="form-label">Nome</label>
+      <input type="text" class="form-control" id="nome" aria-describedby="nomeHelp" formControlName="nome"
+        [ngClass]="{'is-invalid': formProfilo.controls['nome'].touched && formProfilo.controls['nome'].errors, 'is-valid': formProfilo.controls['nome'].valid }">
+      <div id="nomeHelp" class="form-text" *ngIf="!(f['nome'].touched && f['nome'].errors)">Inserire il nome</div>
+      <div class="invalid-feedback" *ngIf="f['nome'].touched && f['nome'].errors">Il nome è obbligatorio.</div>
+    </div>
+    <div class="mb-3">
+      <label for="inputCognome" class="form-label">Cognome</label>
+      <input type="text" class="form-control" id="cognome" aria-describedby="cognomeHelp" formControlName="cognome">
+      <div id="cognomeHelp" class="form-text">Inserire il cognome</div>
+    </div>
+    <div class="mb-3">
+      <label for="inputEmail" class="form-label">Email</label>
+      <input type="email" class="form-control" id="email" aria-describedby="emailHelp" formControlName="email"
+        [ngClass]="{'is-invalid': f['email'].touched && f['email'].errors, 'is-valid': f['email'].valid }">
+      <div id="nomeHelp" class="form-text" *ngIf="!(f['email'].touched && f['email'].errors)">Inserire l'indirizzo email
+      </div>
+      <div class="invalid-feedback" *ngIf="f['email'].touched && f['email'].errors">L'indirizzo mail è obbligatorio.
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="inputPassword" class="form-label">Password</label>
+      <input type="password" class="form-control" id="password" aria-describedby="passwordHelp"
+        formControlName="password"
+        [ngClass]="{'is-invalid': f['password'].touched && f['password'].errors, 'is-valid': f['password'].valid }">
+      <div id="passwordHelp" class="form-text" *ngIf="!(f['password'].touched && f['password'].errors)">Inserire la
+        password</div>
+      <div class="invalid-feedback" *ngIf="f['password'].touched && f['password'].errors">La password è obbligatoria.
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="inputNome" class="form-label">Cellulare</label>
+      <input type="phone" class="form-control" id="cellulare" aria-describedby="cellulareHelp" formControlName="cell">
+      <div id="cellulareHelp" class="form-text">Inserire il numero di cellulare</div>
+    </div>
+    <div formGroupName="indirizzo">
+      <div class="mb-3">
+        <label for="inputVia" class="form-label">Via</label>
+        <input type="text" class="form-control" id="via" aria-describedby="viaHelp" formControlName="via">
+        <div id="viaHelp" class="form-text">Inserire la via</div>
+      </div>
+      <div class="mb-3">
+        <label for="inputNCivico" class="form-label">Numero civico</label>
+        <input type="text" class="form-control" id="nCivico" aria-describedby="nCivicoHelp" formControlName="nCivico">
+        <div id="nCivicoHelp" class="form-text">Inserire il numero civico</div>
+      </div>
+      <div class="mb-3">
+        <label for="inputNCivico" class="form-label">Città</label>
+        <input type="text" class="form-control" id="citta" aria-describedby="cittaHelp" formControlName="citta"
+        [ngClass]="{'is-invalid': i['citta'].touched &&  i['citta'].errors, 'is-valid':  i['citta'].valid }">
+        <div id="cittaHelp" class="form-text" *ngIf="!(i['citta'].touched && i['citta'].errors)">Inserire il nome</div>
+        <div class="invalid-feedback" *ngIf="i['citta'].touched && i['citta'].errors">Il nome della città è obbligatorio.</div>
+      </div>
+      <div class="mb-3">
+        <label for="inputNCap" class="form-label">CAP</label>
+        <input type="text" class="form-control" id="cap" aria-describedby="capHelp" formControlName="cap">
+        <div id="capHelp" class="form-text">Inserire il CAP</div>
+      </div>
+      <div class="mb-3">
+        <label for="inputProvincia" class="form-label">Provincia</label>
+        <input type="text" class="form-control" id="provincia" aria-describedby="provinciaHelp"
+          formControlName="provincia">
+        <div id="provinciaHelp" class="form-text">Inserire il nome della provincia (2 lettere)</div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!formProfilo.valid">Salva</button>
+  </form>
+</div>
