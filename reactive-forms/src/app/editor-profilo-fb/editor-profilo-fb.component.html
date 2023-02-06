@@ -1,5 +1,25 @@
 <div class="container">
-    <form [formGroup]="fp" (ngSubmit)="salva()">
-        
+    <form [formGroup]="fp" (ngSubmit)="save()">
+        <div class="mb-3">
+            <label for="nomeInput" class="form-label">Nome</label>
+            <input type="text" class="form-control" id="nomeInput" aria-describedby="nomeHelp" formControlName="nome">
+            <div id="nomeHelp" class="form-text">Inserire il nome.</div>
+        </div>        
+        <div class="mb-3">
+            <label for="cognomeInput" class="form-label">Cognome</label>
+            <input type="text" class="form-control" id="cognomeInput" aria-describedby="cognomeHelp" formControlName="cognome">
+            <div id="cognomeHelp" class="form-text">Inserire il cognome.</div>
+        </div>        
+        <div class="mb-3">
+            <label for="emailInput" class="form-label">Email</label>
+            <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp" formControlName="email">
+            <div id="emailHelp" class="form-text">Inserire l'indirizzo mail.</div>
+        </div>        
+        <div class="mb-3">
+            <label for="passwordInput" class="form-label">Password</label>
+            <input type="password" class="form-control" id="passwordInput" aria-describedby="passwordHelp" formControlName="password">
+            <div id="passwordHelp" class="form-text">Inserire la password (la lunghezza deve essere compresa fra 8 e 20 caratteri).</div>
+        </div>        
+        <button type="submit" class="btn btn-primary" [disabled]="!fp.valid">Salva</button>    
     </form>
 </div>

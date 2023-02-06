@@ -17,6 +17,7 @@ export class EditorProfiloFbComponent implements OnInit {
   }
 
   save() {
+    console.log(this.fp.value);
     this.profilo.update(this.fp.value);
     this.profilo.saveToLocalStorage();
   }
