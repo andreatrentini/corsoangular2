@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
-import { Profilo } from '../profilo';
+import { FormGroup } from '@angular/forms';
+import { Profilo } from '../common/profilo.class';
 
 @Component({
   selector: 'app-editor-profilo-fb',
@@ -8,23 +8,18 @@ import { Profilo } from '../profilo';
   styleUrls: ['./editor-profilo-fb.component.css']
 })
 export class EditorProfiloFbComponent implements OnInit {
-
-  profilo: Profilo;
-  formProfilo!: any;
-
-  constructor(private fb: FormBuilder) {
-    this.profilo = new Profilo();
-  }
+  profilo: Profilo = new Profilo();
+  fp!: FormGroup;
 
   ngOnInit() {
-    this.profilo.carica();
-
-    this.formProfilo = this.profilo.createForm();
-    console.log('profilo', this.profilo);
+    this.profilo.loadFromLocalStorage();
+    this.fp = this.profilo.createForm();
   }
 
-  salva() {
-    console.log(this.formProfilo.value);
-    this.profilo.salva(this.formProfilo.value);
+  save() {
+    this.profilo.update(this.fp.value);
+    this.profilo.saveToLocalStorage();
   }
+
+
 }

@@ -1,42 +1,5 @@
-<div>
-    <form [formGroup]="formProfilo" (ngSubmit)="salva()">
-        <div>
-            <label for="input-nome">Nome: </label>
-            <input id="input-nome" placeholder="Inserire il nome..." type="text" formControlName="nome">
-        </div>
-        <div>
-            <label for="input-cognome">Cognome: </label>
-            <input id="input-cognome" placeholder="Inserire il cognome..." type="text" formControlName="cognome">
-        </div>
-        <div>
-            <label for="input-email">Mail: </label>
-            <input id="input-email" placeholder="Inserire l'indirizzo mail..." type="email" formControlName="email">
-        </div>
-        <div formGroupName="indirizzo">
-            <div>
-                <label for="input-via">Via: </label>
-                <input id="input-via" placeholder="Inserire la via..." type="text" formControlName="via">
-            </div>
-            <div>
-                <label for="input-ncivico">Numero civico: </label>
-                <input id="input-ncivico" placeholder="Inserire il numero civico..." type="text" formControlName="nCivico">
-            </div>
-            <div>
-                <label for="input-cap">CAP: </label>
-                <input id="input-cap" placeholder="Inserire il CAP..." type="text" formControlName="cap">
-            </div>
-            <div>
-                <label for="input-citta">Città: </label>
-                <input id="input-citta" placeholder="Inserire la città..." type="text" formControlName="citta">
-            </div>
-            <div>
-                <label for="input-provincia">Provincia: </label>
-                <input id="input-provincia" placeholder="Inserire la provincia..." type="text" formControlName="provincia">
-            </div>
-        </div>
-        <div>
-            <button type="submit" [disabled]="!formProfilo.valid">Salva</button> 
-        </div>
-    </form>    
+<div class="container">
+    <form [formGroup]="fp" (ngSubmit)="salva()">
+        
+    </form>
 </div>
-
