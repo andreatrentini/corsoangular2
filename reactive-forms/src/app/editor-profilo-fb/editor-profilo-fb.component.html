@@ -12,14 +12,41 @@
         </div>        
         <div class="mb-3">
             <label for="emailInput" class="form-label">Email</label>
-            <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp" formControlName="email">
-            <div id="emailHelp" class="form-text">Inserire l'indirizzo mail.</div>
+            <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp" formControlName="email"
+            [ngClass]="{'is-invalid': pc['email'].errors && pc['email'].touched, 'is-valid': pc['email'].valid }">
+            <div id="emailHelp" class="form-text" *ngIf="!pc['email'].touched && pc['email'].errors">Inserire l'indirizzo mail.</div>
+            <div class="form-text" *ngIf="pc['email'].valid">Ok.</div>
+            <div class="invalid-feedback" *ngIf="pc['email'].touched && pc['email'].errors">L'indirizzo email è obbligatorio e deve essere scritto in maniera corretta.</div>
         </div>        
         <div class="mb-3">
             <label for="passwordInput" class="form-label">Password</label>
-            <input type="password" class="form-control" id="passwordInput" aria-describedby="passwordHelp" formControlName="password">
-            <div id="passwordHelp" class="form-text">Inserire la password (la lunghezza deve essere compresa fra 8 e 20 caratteri).</div>
-        </div>        
+            <input type="password" class="form-control" id="passwordInput" aria-describedby="passwordHelp" formControlName="password"
+            [ngClass]="{'is-invalid': pc['password'].errors && pc['password'].touched, 'is-valid': pc['password'].valid }">
+            <div id="passwordHelp" class="form-text" *ngIf="!pc['password'].touched && pc['password'].errors">Inserire la password (la lunghezza deve essere compresa fra 8 e 20 caratteri).</div>
+            <div class="form-text" *ngIf="pc['password'].valid">Ok.</div>
+            <div class="invalid-feedback" *ngIf="pc['password'].touched && pc['password'].errors">La password è obbligatoria e la lunghezza deve essere compresa fra 8 e 20 caratteri.</div>
+        </div>     
+        <div formGroupName="indirizzo">
+            <div class="mb-3">
+                <label for="viaInput" class="form-label">Via</label>
+                <input type="text" class="form-control" id="viaInput" aria-describedby="viaHelp" formControlName="via">
+                <div id="viaHelp" class="form-text">Inserire il nome della via.</div>
+            </div>  
+            <div class="mb-3">
+                <label for="ciaaInput" class="form-label">Città</label>
+                <input type="text" class="form-control" id="cittaInput" aria-describedby="cittaHelp" formControlName="citta"
+                [ngClass]="{'is-invalid': ic['citta'].errors && ic['citta'].touched, 'is-valid': ic['citta'].valid }">
+                <div id="cittaHelp" class="form-text" *ngIf="!ic['citta'].touched && ic['citta'].errors">Inserire il nome della citta.</div>
+                <div class="form-text" *ngIf="ic['citta'].valid">Ok.</div>
+                <div class="invalid-feedback" *ngIf="ic['citta'].touched && ic['citta'].errors">Il nome della città è obbligatorio.</div>
+            </div>
+            <div class="mb-3">
+                <label for="provinciaInput" class="form-label">Provincia</label>
+                <input type="text" class="form-control" id="provinciaInput" aria-describedby="provinciaHelp" formControlName="provincia">
+                <div id="provinciaHelp" class="form-text">Inserire il nome della provincia.</div>
+            </div>  
+
+        </div>   
         <button type="submit" class="btn btn-primary" [disabled]="!fp.valid">Salva</button>    
     </form>
 </div>

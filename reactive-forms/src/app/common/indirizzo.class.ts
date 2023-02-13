@@ -16,7 +16,7 @@ export class Indirizzo {
     createForm() {
         return this.fb.group({
             via: [this.via],
-            citta: [this.citta],
+            citta: [this.citta, Validators.required],
             provincia: [this.provincia]
         })
     }

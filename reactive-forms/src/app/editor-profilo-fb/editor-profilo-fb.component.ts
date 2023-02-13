@@ -22,5 +22,15 @@ export class EditorProfiloFbComponent implements OnInit {
     this.profilo.saveToLocalStorage();
   }
 
+  get pc() {
+    return this.fp.controls;
+  }
+
+  get ic() {
+    let controlliIndirizzo: FormGroup;
+    controlliIndirizzo = <FormGroup>this.fp.get('indirizzo');
+    return controlliIndirizzo;
+  }
+
 
 }
