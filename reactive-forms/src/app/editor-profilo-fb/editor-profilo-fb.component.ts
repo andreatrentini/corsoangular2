@@ -29,7 +29,7 @@ export class EditorProfiloFbComponent implements OnInit {
   get ic() {
     let controlliIndirizzo: FormGroup;
     controlliIndirizzo = <FormGroup>this.fp.get('indirizzo');
-    return controlliIndirizzo;
+    return controlliIndirizzo.controls;
   }
 
 
