@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { Profilo } from '../profilo.class';
+import { Profilo } from '../common/profilo.class';
 
 @Component({
   selector: 'app-profilo-edit',
