@@ -38,6 +38,15 @@ export class TodoService {
     this.eventEmitter.next(this.todos.slice());
   }
 
+  getByIndex(indice: number) {
+    if (indice >= 0 && indice < this.todos.length) {
+      return this.todos[indice];
+    }
+    else {
+      return new Todo(this.id);
+    }
+  }
+
   get id():number {
     if (this.todos.length == 0) {
       return 1;
@@ -62,8 +71,8 @@ export class TodoService {
     let elem: Todo = new Todo(1, {
       titolo: "Titolo 1",
       descrizione: 'Descrizione 1',
-      data: '13/03/2023',
-      ora: '10.30',
+      data: '2023-03-13',
+      ora: '10:30',
       luogo: 'Rovereto',
       completata: true,
     });
@@ -71,8 +80,8 @@ export class TodoService {
     elem = new Todo(2, {
       titolo: "Titolo 2",
       descrizione: 'Descrizione 2',
-      data: '13/03/2023',
-      ora: '10.30',
+      data: '2023-04-08',
+      ora: '9:30',
       luogo: 'Rovereto',
       completata: true,
     });
@@ -80,8 +89,8 @@ export class TodoService {
     elem = new Todo(3, {
       titolo: "Titolo 3",
       descrizione: 'Descrizione 3',
-      data: '13/03/2023',
-      ora: '10.30',
+      data: '2023-06-10',
+      ora: '17:30',
       luogo: 'Rovereto',
       completata: true,
     });

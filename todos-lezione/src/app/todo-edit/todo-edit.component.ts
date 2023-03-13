@@ -16,6 +16,7 @@ export class TodoEditComponent implements OnInit {
   constructor(private todoService: TodoService) {}
 
   ngOnInit(): void {
+    this.todo = this.todoService.getByIndex(3);
     this.todoForm = this.todo.form;
   }
 
