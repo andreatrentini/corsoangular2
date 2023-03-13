@@ -38,5 +38,54 @@ export class TodoService {
     this.eventEmitter.next(this.todos.slice());
   }
 
-  constructor() { }
+  get id():number {
+    if (this.todos.length == 0) {
+      return 1;
+    }
+    else {
+      return Math.max.apply(Math, this.todos.map((t) => { return t.id})) + 1;
+    }
+  }
+
+  get completati() {
+    return this.todos.filter((t) => { return t.completata}).map((t) => {return t.titolo})
+  }
+  
+  get ordinatiPerData() {
+    return this.todos.sort((a, b) => {
+      return a.data.localeCompare(b.data);
+    })
+  }
+
+  constructor() { 
+
+    let elem: Todo = new Todo(1, {
+      titolo: "Titolo 1",
+      descrizione: 'Descrizione 1',
+      data: '13/03/2023',
+      ora: '10.30',
+      luogo: 'Rovereto',
+      completata: true,
+    });
+    this.todos.push (elem);
+    elem = new Todo(2, {
+      titolo: "Titolo 2",
+      descrizione: 'Descrizione 2',
+      data: '13/03/2023',
+      ora: '10.30',
+      luogo: 'Rovereto',
+      completata: true,
+    });
+    this.todos.push (elem);
+    elem = new Todo(3, {
+      titolo: "Titolo 3",
+      descrizione: 'Descrizione 3',
+      data: '13/03/2023',
+      ora: '10.30',
+      luogo: 'Rovereto',
+      completata: true,
+    });
+    this.todos.push (elem);
+
+  }
 }

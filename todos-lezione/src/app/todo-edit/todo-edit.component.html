@@ -1,1 +1,39 @@
-<p>todo-edit works!</p>
+<div class="container-sm">
+    <h1 class="display-2">Todo</h1>
+    <form [formGroup]="todoForm" (ngSubmit)="salva()">
+      <div class="mb-3">
+        <label for="inputTitolo" class="form-label">Titolo</label>
+        <input type="text" class="form-control" id="titolo" aria-describedby="titoloHelp" formControlName="titolo"
+          [ngClass]="{'is-invalid': c['titolo'].touched && c['titolo'].errors, 'is-valid': c['titolo'].valid }">
+        <div id="titoloHelp" class="form-text" *ngIf="!(c['titolo'].touched && c['titolo'].errors)">Inserire il titolo</div>
+        <div class="invalid-feedback" *ngIf="c['titolo'].touched && c['titolo'].errors">Il titolo è obbligatorio.</div>
+      </div>
+      <div class="mb-3">
+        <label for="inputDescrizione" class="form-label">Descrizione</label>
+        <textarea  class="form-control" id="descrizione" rows="3" aria-describedby="descrizioneHelp" formControlName="descrizione"></textarea>
+        <div id="descrizioneHelp" class="form-text">Inserire la descrizione</div>
+      </div>
+      <div class="mb-3">
+        <label for="inputData" class="form-label">Data</label>
+        <input type="date" class="form-control" id="data" aria-describedby="dataHelp" formControlName="data">
+        <div id="dataHelp" class="form-text">Inserire la data di scadenza</div>
+      </div>
+      <div class="mb-3">
+        <label for="inputOra" class="form-label">Ora</label>
+        <input type="time" class="form-control" id="ora" aria-describedby="oraHelp" formControlName="ora">
+        <div id="oraHelp" class="form-text">Inserire l'orario'</div>
+      </div>
+      <div class="mb-3">
+        <label for="inputLuogo" class="form-label">Luogo o posizione</label>
+        <input type="text" class="form-control" id="luogo" aria-describedby="luogoHelp" formControlName="luogo">
+        <div id="luogoHelp" class="form-text">Inserire il luogo o la posizione</div>
+      </div>
+      <div class="form-check mb-4">
+        <input class="form-check-input" type="checkbox" id="completata" formControlName="completata">
+        <label class="form-check-label" for="completata">
+          Completata
+        </label>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="!todoForm.valid">Salva</button>
+    </form>
+  </div>
