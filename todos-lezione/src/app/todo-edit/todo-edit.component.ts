@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { Todo } from '../common/todo.class';
 import { TodoService } from '../common/todo.service';
 
@@ -13,10 +14,13 @@ export class TodoEditComponent implements OnInit {
   todo: Todo = new Todo(this.todoService.id);
   todoForm!: FormGroup;
 
-  constructor(private todoService: TodoService) {}
+  constructor(private todoService: TodoService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.todo = this.todoService.getByIndex(3);
+    this.route.queryParams.subscribe(params => {
+      console.log(params);
+      this.todo = this.todoService.getByIndex(Number(params['id']));
+    })
     this.todoForm = this.todo.form;
   }
 
